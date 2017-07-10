@@ -180,15 +180,10 @@ class Bed extends Transparent {
     /**
      * @param Item $item
      * @param Block $block
-     * @param Block $target
-     * @param int $face
-     * @param float $fx
-     * @param float $fy
-     * @param float $fz
      * @param Player|null $player
      * @return bool
      */
-    public function place(Item $item, Block $block, Block $target, int $face, float $fx, float $fy, float $fz, Player $player = null) : bool{
+    public function place(Item $item, Block $block, Player $player = null) : bool {
         $down = $this->getSide(Vector3::SIDE_DOWN);
         if(!$down->isTransparent()){
             $meta = (($player instanceof Player ? $player->getDirection() : 0) - 1) & 0x03;
