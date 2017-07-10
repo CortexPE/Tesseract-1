@@ -27,7 +27,7 @@ class ClearCommand extends VanillaCommand {
      * @return mixed|void
      */
     public function execute(CommandSender $sender, $currentAlias, array $args){
-        if(!$this->getPermission($sender)){
+        if(!$this->testPermission($sender)){
             return true;
         }elseif($sender instanceof ConsoleCommandSender){
             $sender->sendMessage(TextFormat::DARK_RED . "Don't use the command with console.");
