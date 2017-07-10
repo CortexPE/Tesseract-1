@@ -253,3 +253,4 @@ class Bed extends Transparent {
     public function getAffectedBlocks() : array{
         return [$this, $this->getSide(self::getOtherHalfSide($this->meta))];
     }
+}
