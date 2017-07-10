@@ -71,6 +71,8 @@ use pocketmine\command\defaults\WeatherCommand;
 use pocketmine\command\defaults\WhitelistCommand;
 use pocketmine\command\defaults\XpCommand;
 
+use pocketmine\command\defaults\ClearCommand;
+
 //TODO: Fix the horrible mess of DevTools commands.
 use pocketmine\command\defaults\MakePluginCommand;
 use pocketmine\command\defaults\MakeServerCommand;
@@ -105,6 +107,7 @@ class SimpleCommandMap implements CommandMap{
 	}
 
 	private function setDefaultCommands(){
+		$this->register("pocketmine", new ClearCommand("clear"));
 		$this->register("pocketmine", new WeatherCommand("weather"));
 
 		$this->register("pocketmine", new BanIpByNameCommand("banipbyname"));
