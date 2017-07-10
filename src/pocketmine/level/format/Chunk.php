@@ -643,15 +643,14 @@ class Chunk{
 		return $this->tileList[$index] ?? null;
 	}
 
-	/**
-	 * Unloads the chunk, closing entities and tiles.
-	 *
-	 * @param bool $save
-	 * @param bool $safe Whether to check if there are still players using this chunk
-	 *
-	 * @return bool
-	 */
-	public function unload(bool $save = true, bool $safe = true) : bool{
+    /**
+     * Unloads the chunk, closing entities and tiles.
+     *
+     * @param bool $safe Whether to check if there are still players using this chunk
+     * @return bool
+     * @internal param bool $save
+     */
+	public function unload(bool $safe = true) : bool{
 		if($safe){
 			foreach($this->getEntities() as $entity){
 				if($entity instanceof Player){

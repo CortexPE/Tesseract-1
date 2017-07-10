@@ -33,8 +33,8 @@ use pocketmine\block\SlimeBlock;
 use pocketmine\entity\Item as DroppedItem;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDespawnEvent;
-use pocketmine\event\entity\EntityEffectAddEvent;
-use pocketmine\event\entity\EntityEffectRemoveEvent;
+
+
 use pocketmine\event\entity\EntityLevelChangeEvent;
 use pocketmine\event\entity\EntityMotionEvent;
 use pocketmine\event\entity\EntityRegainHealthEvent;
@@ -891,13 +891,12 @@ abstract class Entity extends Location implements Metadatable{
 		}
 	}
 
-	/**
-	 * @param float             $damage
-	 * @param EntityDamageEvent $source
-	 *
-	 * @return bool
-	 */
-	public function attack($damage, EntityDamageEvent $source){
+    /**
+     * @param EntityDamageEvent $source
+     * @return bool
+     * @internal param float $damage
+     */
+	public function attack(EntityDamageEvent $source){
 		if($this->hasEffect(Effect::FIRE_RESISTANCE)
 			and ($source->getCause() === EntityDamageEvent::CAUSE_FIRE
 				or $source->getCause() === EntityDamageEvent::CAUSE_FIRE_TICK
@@ -930,12 +929,11 @@ abstract class Entity extends Location implements Metadatable{
 		return true;
 	}
 
-	/**
-	 * @param float                   $amount
-	 * @param EntityRegainHealthEvent $source
-	 *
-	 */
-	public function heal($amount, EntityRegainHealthEvent $source){
+    /**
+     * @param EntityRegainHealthEvent $source
+     * @internal param float $amount
+     */
+	public function heal(EntityRegainHealthEvent $source){
 		$this->server->getPluginManager()->callEvent($source);
 		if($source->isCancelled()){
 			return;

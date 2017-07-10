@@ -45,7 +45,7 @@ abstract class Packet{
 		return $buffer;
 	}
 
-	protected function getLong($signed = true){
+	protected function getLong(){
 		return Binary::readLong($this->get(8));
 	}
 

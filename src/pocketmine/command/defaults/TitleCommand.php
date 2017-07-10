@@ -23,7 +23,7 @@
  
  namespace pocketmine\command\defaults;
  
-use pocketmine\network\protocol\SetTitlePacket;
+
 use pocketmine\command\CommandSender;
 
 class TitleCommand extends VanillaCommand {

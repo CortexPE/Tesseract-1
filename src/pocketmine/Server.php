@@ -2191,12 +2191,12 @@ class Server{
 		TimingsHandler::reload();
 	}
 
-	/**
-	 * Shutdowns the server correctly
-	 * @param bool   $restart
-	 * @param string $msg
-	 */
-	public function shutdown(bool $restart = false, string $msg = ""){
+    /**
+     * Shutdowns the server correctly
+     * @param string $msg
+     * @internal param bool $restart
+     */
+	public function shutdown(string $msg = ""){
 		/*if($this->isRunning){
 			$killer = new ServerKiller(90);
 			$killer->start();

@@ -49,16 +49,15 @@ class MovingObjectPosition{
 
 	}
 
-	/**
-	 * @param int     $x
-	 * @param int     $y
-	 * @param int     $z
-	 * @param int     $side
-	 * @param Vector3 $hitVector
-	 *
-	 * @return MovingObjectPosition
-	 */
-	public static function fromBlock($x, $y, $z, $side, Vector3 $hitVector){
+    /**
+     * @param int $x
+     * @param int $y
+     * @param int $z
+     * @param Vector3 $hitVector
+     * @return MovingObjectPosition
+     * @internal param int $side
+     */
+	public static function fromBlock($x, $y, $z, Vector3 $hitVector){
 		$ob = new MovingObjectPosition;
 		$ob->typeOfHit = 0;
 		$ob->blockX = $x;

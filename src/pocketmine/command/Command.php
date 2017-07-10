@@ -90,15 +90,14 @@ abstract class Command{
 		return $this->commandData;
 	}
 
-	/**
-	 * Generates modified command data for the specified player
-	 * for AvailableCommandsPacket.
-	 *
-	 * @param Player $player
-	 *
-	 * @return array
-	 */
-	public function generateCustomCommandData(Player $player){
+    /**
+     * Generates modified command data for the specified player
+     * for AvailableCommandsPacket.
+     * @return array
+     * @internal param Player $player
+     *
+     */
+	public function generateCustomCommandData(){
 		//TODO: fix command permission filtering on join
 		/*if(!$this->testPermissionSilent($player)){
 			return null;

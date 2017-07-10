@@ -123,16 +123,16 @@ class ParticleCommand extends VanillaCommand{
 	}
 
 
-	/**
-	 * @param         $name
-	 * @param Vector3 $pos
-	 * @param         $xd
-	 * @param         $yd
-	 * @param         $zd
-	 * @param         $data
-	 * @return Particle
+    /**
+     * @param $name
+     * @param Vector3 $pos
+     * @param $data
+     * @return Particle
+     * @internal param $xd
+     * @internal param $yd
+     * @internal param $zd
      */
-	private function getParticle($name, Vector3 $pos, $xd, $yd, $zd, $data){
+	private function getParticle($name, Vector3 $pos, $data){
 		switch($name){
 			case "explode":
 				return new ExplodeParticle($pos);

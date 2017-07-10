@@ -364,32 +364,29 @@ class Block extends Position implements BlockIds, Metadatable{
 		$this->meta = (int) $meta;
 	}
 
-	/**
-	 * Places the Block, using block space and block target, and side. Returns if the block has been placed.
-	 *
-	 * @param Item   $item
-	 * @param Block  $block
-	 * @param Block  $target
-	 * @param int    $face
-	 * @param float  $fx
-	 * @param float  $fy
-	 * @param float  $fz
-	 * @param Player $player = null
-	 *
-	 * @return bool
-	 */
-	public function place(Item $item, Block $block, Block $target, $face, $fx, $fy, $fz, Player $player = null){
+    /**
+     * Places the Block, using block space and block target, and side. Returns if the block has been placed.
+     * @return bool
+     * @internal param Item $item
+     * @internal param Block $block
+     * @internal param Block $target
+     * @internal param int $face
+     * @internal param float $fx
+     * @internal param float $fy
+     * @internal param float $fz
+     * @internal param Player $player = null
+     */
+	public function place(){
 		return $this->getLevel()->setBlock($this, $this, true, true);
 	}
 
-	/**
-	 * Returns if the item can be broken with an specific Item
-	 *
-	 * @param Item $item
-	 *
-	 * @return bool
-	 */
-	public function isBreakable(Item $item){
+    /**
+     * Returns if the item can be broken with an specific Item
+     * @return bool
+     * @internal param Item $item
+     *
+     */
+	public function isBreakable(){
 		return true;
 	}
 
@@ -397,14 +394,13 @@ class Block extends Position implements BlockIds, Metadatable{
 		return 10;
 	}
 
-	/**
-	 * Do the actions needed so the block is broken with the Item
-	 *
-	 * @param Item $item
-	 *
-	 * @return mixed
-	 */
-	public function onBreak(Item $item){
+    /**
+     * Do the actions needed so the block is broken with the Item
+     * @return mixed
+     * @internal param Item $item
+     *
+     */
+	public function onBreak(){
 		return $this->getLevel()->setBlock($this, new Air(), true, true);
 	}
 
@@ -419,15 +415,13 @@ class Block extends Position implements BlockIds, Metadatable{
 
 	}
 
-	/**
-	 * Do actions when activated by Item. Returns if it has done anything
-	 *
-	 * @param Item   $item
-	 * @param Player $player
-	 *
-	 * @return bool
-	 */
-	public function onActivate(Item $item, Player $player = null){
+    /**
+     * Do actions when activated by Item. Returns if it has done anything
+     * @return bool
+     * @internal param Item $item
+     * @internal param Player $player
+     */
+	public function onActivate(){
 		return false;
 	}
 
@@ -586,7 +580,7 @@ class Block extends Position implements BlockIds, Metadatable{
 		return false;
 	}
 
-	public function isActivated(Block $from = null){
+	public function isActivated(){
 		return false;
 	}
 
@@ -643,14 +637,13 @@ class Block extends Position implements BlockIds, Metadatable{
 		$this->boundingBox = null;
 	}
 
-	/**
-	 * Returns an array of Item objects to be dropped
-	 *
-	 * @param Item $item
-	 *
-	 * @return array
-	 */
-	public function getDrops(Item $item) : array{
+    /**
+     * Returns an array of Item objects to be dropped
+     * @return array
+     * @internal param Item $item
+     *
+     */
+	public function getDrops() : array{
 		if(!isset(self::$list[$this->getId()])){ //Unknown blocks
 			return [];
 		}else{
@@ -706,7 +699,7 @@ class Block extends Position implements BlockIds, Metadatable{
 		return $base;
 	}
 
-	public function canBeBrokenWith(Item $item){
+	public function canBeBrokenWith(){
 		return $this->getHardness() !== -1;
 	}
 

@@ -77,19 +77,7 @@ class CrashDump{
 		return $this->data;
 	}
 
-	private function encodeData(){
-		$this->addLine();
-		$this->addLine("----------------------REPORT THE DATA BELOW THIS LINE-----------------------");
-		$this->addLine();
-		$this->addLine("===BEGIN CRASH DUMP===");
-		$this->encodedData = zlib_encode(json_encode($this->data, JSON_UNESCAPED_SLASHES), ZLIB_ENCODING_DEFLATE, 9);
-		foreach(str_split(base64_encode($this->encodedData), 76) as $line){
-			$this->addLine($line);
-		}
-		$this->addLine("===END CRASH DUMP===");
-	}
-
-	private function pluginsData(){
+    private function pluginsData(){
 		if(class_exists("pocketmine\\plugin\\PluginManager", false)){
 			$this->addLine();
 			$this->addLine("Loaded plugins:");

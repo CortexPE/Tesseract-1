@@ -77,16 +77,14 @@ abstract class Spawnable extends Tile{
 	 */
 	public abstract function getSpawnCompound();
 
-	/**
-	 * Called when a player updates a block entity's NBT data
-	 * for example when writing on a sign.
-	 *
-	 * @param CompoundTag $nbt
-	 * @param Player      $player
-	 *
-	 * @return bool indication of success, will respawn the tile to the player if false.
-	 */
-	public function updateCompoundTag(CompoundTag $nbt, Player $player) : bool{
+    /**
+     * Called when a player updates a block entity's NBT data
+     * for example when writing on a sign.
+     * @return bool indication of success, will respawn the tile to the player if false.
+     * @internal param CompoundTag $nbt
+     * @internal param Player $player
+     */
+	public function updateCompoundTag() : bool{
 		return false;
 	}
 }

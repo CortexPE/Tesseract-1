@@ -23,7 +23,7 @@ namespace pocketmine\network;
 
 use pocketmine\event\player\PlayerCreationEvent;
 use pocketmine\network\protocol\DataPacket;
-use pocketmine\network\protocol\Info as ProtocolInfo;
+
 use pocketmine\network\protocol\Info;
 use pocketmine\network\protocol\BatchPacket;
 use pocketmine\Player;

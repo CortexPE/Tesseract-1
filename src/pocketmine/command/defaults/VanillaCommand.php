@@ -32,7 +32,7 @@ abstract class VanillaCommand extends Command{
 		parent::__construct($name, $description, $usageMessage, $aliases);
 	}
 
-	protected function getInteger(CommandSender $sender, $value, $min = self::MIN_COORD, $max = self::MAX_COORD){
+	protected function getInteger($value, $min = self::MIN_COORD, $max = self::MAX_COORD){
 		$i = (int) $value;
 
 		if($i < $min){
@@ -54,7 +54,7 @@ abstract class VanillaCommand extends Command{
 		return $this->getDouble($sender, $input, $min, $max);
 	}
 
-	protected function getDouble(CommandSender $sender, $value, $min = self::MIN_COORD, $max = self::MAX_COORD){
+	protected function getDouble($value, $min = self::MIN_COORD, $max = self::MAX_COORD){
 		$i = (double) $value;
 
 		if($i < $min){
