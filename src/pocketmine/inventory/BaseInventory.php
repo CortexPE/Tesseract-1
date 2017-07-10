@@ -438,7 +438,7 @@ abstract class BaseInventory implements Inventory{
 		}
 	}
 
-	public function processSlotChange(): bool{
+    public function processSlotChange(Transaction $transaction): bool{
 		return true;
 	}
 

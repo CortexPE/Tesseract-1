@@ -84,7 +84,7 @@ abstract class Spawnable extends Tile{
      * @internal param CompoundTag $nbt
      * @internal param Player $player
      */
-	public function updateCompoundTag() : bool{
+    public function updateCompoundTag(CompoundTag $nbt, Player $player) : bool{
 		return false;
 	}
 }

@@ -650,7 +650,7 @@ class Chunk{
      * @return bool
      * @internal param bool $save
      */
-	public function unload(bool $safe = true) : bool{
+    public function unload(bool $save = true, bool $safe = true) : bool{
 		if($safe){
 			foreach($this->getEntities() as $entity){
 				if($entity instanceof Player){

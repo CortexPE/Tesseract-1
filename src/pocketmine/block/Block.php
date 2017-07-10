@@ -376,7 +376,7 @@ class Block extends Position implements BlockIds, Metadatable{
      * @internal param float $fz
      * @internal param Player $player = null
      */
-	public function place(){
+    public function place(Item $item, Block $block, Block $target, $face, $fx, $fy, $fz, Player $player = null){
 		return $this->getLevel()->setBlock($this, $this, true, true);
 	}
 
@@ -386,7 +386,7 @@ class Block extends Position implements BlockIds, Metadatable{
      * @internal param Item $item
      *
      */
-	public function isBreakable(){
+    public function isBreakable(Item $item){
 		return true;
 	}
 
@@ -400,7 +400,7 @@ class Block extends Position implements BlockIds, Metadatable{
      * @internal param Item $item
      *
      */
-	public function onBreak(){
+    public function onBreak(Item $item){
 		return $this->getLevel()->setBlock($this, new Air(), true, true);
 	}
 
@@ -421,7 +421,7 @@ class Block extends Position implements BlockIds, Metadatable{
      * @internal param Item $item
      * @internal param Player $player
      */
-	public function onActivate(){
+    public function onActivate(Item $item, Player $player = null){
 		return false;
 	}
 
@@ -643,7 +643,7 @@ class Block extends Position implements BlockIds, Metadatable{
      * @internal param Item $item
      *
      */
-	public function getDrops() : array{
+    public function getDrops(Item $item) : array{
 		if(!isset(self::$list[$this->getId()])){ //Unknown blocks
 			return [];
 		}else{
@@ -699,7 +699,7 @@ class Block extends Position implements BlockIds, Metadatable{
 		return $base;
 	}
 
-	public function canBeBrokenWith(){
+    public function canBeBrokenWith(Item $item){
 		return $this->getHardness() !== -1;
 	}
 

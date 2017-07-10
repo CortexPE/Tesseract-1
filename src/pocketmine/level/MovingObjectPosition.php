@@ -57,7 +57,7 @@ class MovingObjectPosition{
      * @return MovingObjectPosition
      * @internal param int $side
      */
-	public static function fromBlock($x, $y, $z, Vector3 $hitVector){
+    public static function fromBlock($x, $y, $z, $side, Vector3 $hitVector){
 		$ob = new MovingObjectPosition;
 		$ob->typeOfHit = 0;
 		$ob->blockX = $x;

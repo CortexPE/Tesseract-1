@@ -347,7 +347,7 @@ class Utils{
      *
      * @deprecated prefer PHP 7 random_bytes()
      */
-	public static function getRandomBytes($length = 16, $raw = true){
+    public static function getRandomBytes($length = 16, $secure = true, $raw = true, $startEntropy = "", &$rounds = 0, &$drop = 0){
 		$raw_output = random_bytes($length);
 		if ($raw) {
 			return $raw_output;

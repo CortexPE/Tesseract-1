@@ -86,7 +86,7 @@ class Item implements ItemIds, \JsonSerializable{
 		return false;
 	}
 
-	public static function init(){
+    public static function init($readFromJson = false){
 		if(self::$list === null){
 			//TODO: Sort this mess into some kind of order
 			self::$list = new \SplFixedArray(65536);
@@ -834,7 +834,7 @@ class Item implements ItemIds, \JsonSerializable{
 		return false;
 	}
 
-	public function canBeConsumedBy() : bool{
+    public function canBeConsumedBy(Entity $entity) : bool{
 		return $this->canBeConsumed();
 	}
 
@@ -885,7 +885,7 @@ class Item implements ItemIds, \JsonSerializable{
      * @internal param Block|Entity $object
      *
      */
-	public function useOn(){
+    public function useOn($object){
 		return false;
 	}
 
@@ -976,11 +976,11 @@ class Item implements ItemIds, \JsonSerializable{
 		return $rec;
 	}
 
-	public function getDestroySpeed(){
+    public function getDestroySpeed(Block $block, Player $player){
 		return 1;
 	}
 
-	public function onActivate(){
+    public function onActivate(Level $level, Player $player, Block $block, Block $target, $face, $fx, $fy, $fz){
 		return false;
 	}
 

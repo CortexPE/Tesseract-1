@@ -97,7 +97,7 @@ abstract class Command{
      * @internal param Player $player
      *
      */
-	public function generateCustomCommandData(){
+    public function generateCustomCommandData(Player $player){
 		//TODO: fix command permission filtering on join
 		/*if(!$this->testPermissionSilent($player)){
 			return null;

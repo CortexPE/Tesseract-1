@@ -80,7 +80,7 @@ abstract class Tree extends Object{
 	}
 
 
-	public function canPlaceObject(ChunkManager $level, $x, $y, $z){
+    public function canPlaceObject(ChunkManager $level, $x, $y, $z, Random $random){
 		$radiusToCheck = 0;
 		for($yy = 0; $yy < $this->treeHeight + 3; ++$yy){
 			if($yy == 1 or $yy === $this->treeHeight){
@@ -121,7 +121,7 @@ abstract class Tree extends Object{
 		}
 	}
 
-	protected function placeTrunk(ChunkManager $level, $x, $y, $z, $trunkHeight){
+    protected function placeTrunk(ChunkManager $level, $x, $y, $z, Random $random, $trunkHeight){
 		// The base dirt block
 		$level->setBlockIdAt($x, $y - 1, $z, Block::DIRT);
 

@@ -436,11 +436,11 @@ class NBT{
 		$this->buffer = "";
 	}
 
-	public function readCompressed($buffer){
+    public function readCompressed($buffer, $compression = ZLIB_ENCODING_GZIP){
 		$this->read(zlib_decode($buffer));
 	}
 
-	public function readNetworkCompressed($buffer){
+    public function readNetworkCompressed($buffer, $compression = ZLIB_ENCODING_GZIP){
 		$this->read(zlib_decode($buffer), false, true);
 	}
 
