@@ -1915,13 +1915,14 @@ abstract class Entity extends Location implements Metadatable{
 		}
 	}
 
-	/**
-	 * @param int   $id
-	 * @param int   $type
-	 * @param mixed $value
-	 *
-	 * @return bool
-	 */
+    /**
+     * @param int $id
+     * @param int $type
+     * @param mixed $value
+     *
+     * @param bool $send
+     * @return bool
+     */
 	public function setDataProperty($id, $type, $value, bool $send = true){
 		if($this->getDataProperty($id) !== $value){
 			$this->dataProperties[$id] = [$type, $value];

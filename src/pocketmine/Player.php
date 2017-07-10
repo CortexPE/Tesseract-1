@@ -1010,8 +1010,8 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 	 * @param DataPacket $packet
 	 * @param bool       $needACK
 	 *
-	 * @return int|bool
-	 */
+	 * @return bool|int|void
+     */
 	public function dataPacket(DataPacket $packet, $needACK = false){
 		if(!$this->connected){
 			return false;
@@ -2652,7 +2652,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 					if($packet->action === InteractPacket::ACTION_RIGHT_CLICK){
 						$this->linkEntity($target);
 					}elseif($packet->action === InteractPacket::ACTION_LEFT_CLICK){
-						if($this->linkedEntity == $target){
+						if($this->linkedEntity === $target){
 							$target->setLinked(0, $this);
 						}
 						$target->close();

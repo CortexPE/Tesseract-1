@@ -736,10 +736,11 @@ class Level implements ChunkManager, Metadatable{
 		}
 	}
 
-	/**
-	 * WARNING: Do not use this, it's only for internal use.
-	 * Changes to this function won't be recorded on the version.
-	 */
+    /**
+     * WARNING: Do not use this, it's only for internal use.
+     * Changes to this function won't be recorded on the version.
+     * @param Player[] $targets
+     */
 	public function sendTime(Player ...$targets){
 		$pk = new SetTimePacket();
 		$pk->time = (int) $this->time;
@@ -1743,19 +1744,20 @@ class Level implements ChunkManager, Metadatable{
 		return true;
 	}
 
-	/**
-	 * Uses a item on a position and face, placing it or activating the block
-	 *
-	 * @param Vector3 $vector
-	 * @param Item    $item
-	 * @param int     $face
-	 * @param float   $fx     default 0.0
-	 * @param float   $fy     default 0.0
-	 * @param float   $fz     default 0.0
-	 * @param Player  $player default null
-	 *
-	 * @return bool
-	 */
+    /**
+     * Uses a item on a position and face, placing it or activating the block
+     *
+     * @param Vector3 $vector
+     * @param Item $item
+     * @param int $face
+     * @param float $fx default 0.0
+     * @param float $fy default 0.0
+     * @param float $fz default 0.0
+     * @param Player $player default null
+     *
+     * @param bool $playSound
+     * @return bool
+     */
 	public function useItemOn(Vector3 $vector, Item &$item, int $face, float $fx = 0.0, float $fy = 0.0, float $fz = 0.0, Player $player = null, bool $playSound = false) : bool{
 		$target = $this->getBlock($vector);
 		$block = $target->getSide($face);

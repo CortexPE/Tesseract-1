@@ -2029,13 +2029,14 @@ class Server{
 		}
 	}
 
-	/**
-	 * Broadcasts a list of packets in a batch to a list of players
-	 *
-	 * @param Player[]            $players
-	 * @param DataPacket[]|string $packets
-	 * @param bool                $forceSync
-	 */
+    /**
+     * Broadcasts a list of packets in a batch to a list of players
+     *
+     * @param Player[] $players
+     * @param DataPacket[]|string $packets
+     * @param bool $forceSync
+     * @param bool $immediate
+     */
 	public function batchPackets(array $players, array $packets, $forceSync = false, bool $immediate = false){
 		Timings::$playerNetworkTimer->startTiming();
 		$str = "";
